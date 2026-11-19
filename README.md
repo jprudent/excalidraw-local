@@ -43,9 +43,18 @@ authentication.
 $ cd app
 $ npm install
 $ npm run build   # writes app/dist/
+
+$ npx playwright install --with-deps chromium
+$ npm run test:e2e
 ```
 
-Requires Node.js 20 or newer.
+Requires Node.js 20 or newer. The Playwright test serves the built app, checks
+that the editor renders, draws a rectangle, verifies the scene is persisted in
+`localStorage`, and fails on any request outside the local origin.
+
+CI builds the Nix package on `x86_64-linux` and `aarch64-linux` and runs the
+render test on `x86_64-linux`. The macOS outputs are advertised but not covered
+by CI.
 
 ## Updating Excalidraw
 
@@ -55,8 +64,8 @@ Requires Node.js 20 or newer.
 3. Set `npmDepsHash` in `nix/package.nix` to `lib.fakeHash`, run
    `nix build .#excalidraw`, and copy the reported `got:` hash.
 4. Bump `version` in `nix/package.nix` if the wrapper version changes too.
-5. Run `nix flake check` and confirm `index.html`, the fonts and the diagram
-   data are still present.
+5. Run `nix flake check`, `npm run test:e2e` and confirm `index.html`, the
+   fonts and the diagram data are still present.
 
 The font/data paths (`node_modules/@excalidraw/excalidraw/dist/prod/{fonts,data}`)
 and `window.EXCALIDRAW_ASSET_PATH` are the two upstream details this packaging

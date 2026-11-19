@@ -9,7 +9,7 @@ buildNpmPackage {
   # npm >= 10 needs fetcher version 2 so the offline cache can answer the peer
   # resolution `npm ci` performs for React and @excalidraw/excalidraw.
   npmDepsFetcherVersion = 2;
-  npmDepsHash = "sha256-0fe4Wt5GgcEg0UxTpZIB/0+h3FU5FJ2sGCBUcmPCNck=";
+  npmDepsHash = "sha256-agPdDQ5zqM6eZu3s27TJO1/Ca024Ne+Au3qbYMTqtBY=";
 
   # esbuild and @parcel/watcher try to fetch or compile native helpers that the
   # Vite build does not need; the npm cache already has their binaries.

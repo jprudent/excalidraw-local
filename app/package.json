@@ -6,7 +6,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@excalidraw/excalidraw": "0.18.1",
@@ -14,6 +16,7 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.1",
     "@vitejs/plugin-react": "5.1.1",
     "vite": "7.2.2"
   }
