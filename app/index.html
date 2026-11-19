@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Excalidraw</title>
+    <!--
+      The npm package loads its fonts and diagram data from a CDN by default.
+      Serve the copies made by modules/desktop/excalidraw.nix instead so the
+      app stays fully offline.
+    -->
+    <script>
+      window.EXCALIDRAW_ASSET_PATH = "/";
+    </script>
+    <style>
+      html,
+      body,
+      #root {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
